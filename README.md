@@ -48,9 +48,9 @@ ionic serve
 Você também pode rodar o app emulando dispositivos Android ou iOS usando os comandos do Ionic/Cordova.
 
 # 📦 Versões de Distribuição
-# ✅ Versão Web (via ionic serve)
+ ✅ Versão Web (via ionic serve)
 
-# 📱 Versão Mobile (Android e iOS – build necessário)
+ 📱 Versão Mobile (Android e iOS – build necessário)
 
 ### 👥 Autores
 Mateus Barbosa Medeiros de Oliveira
