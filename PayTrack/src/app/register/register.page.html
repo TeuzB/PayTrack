@@ -1,0 +1,56 @@
+<ion-content class="ion-padding">
+  <div class="container">
+    <h1>PayTrack</h1>
+    <h2>Criar Conta</h2>
+
+    <form [formGroup]="credentials" (ngSubmit)="register()">
+      <ion-item>
+        <ion-input
+          formControlName="name"
+          label="Nome"
+          type="text"
+          label-placement="floating"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          formControlName="email"
+          label="Email"
+          type="email"
+          label-placement="floating"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          formControlName="password"
+          label="Senha"
+          type="password"
+          label-placement="floating"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          formControlName="confirmPassword"
+          label="Confirmar Senha"
+          type="password"
+          label-placement="floating"
+        ></ion-input>
+      </ion-item>
+
+      <ion-button
+        expand="block"
+        type="submit"
+        [disabled]="credentials.invalid || passwordMismatch"
+      >
+        Cadastrar
+      </ion-button>
+    </form>
+
+    <ion-text color="medium">
+      <p (click)="navigateToLogin()" class="clickable">Já tenho uma conta</p>
+    </ion-text>
+  </div>
+</ion-content>

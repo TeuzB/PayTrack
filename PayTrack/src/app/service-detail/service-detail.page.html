@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Detalhes da Ordem</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ng-container *ngIf="ordem; else carregando">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ ordem.cliente }}</ion-card-title>
+        <ion-card-subtitle
+          >Status: {{ ordem.statusPagamento }}</ion-card-subtitle
+        >
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="stacked">Cliente</ion-label>
+          <ion-input [(ngModel)]="ordem.cliente"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Serviço</ion-label>
+          <ion-input [(ngModel)]="ordem.descricao"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Valor</ion-label>
+          <ion-input type="number" [(ngModel)]="ordem.valor"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Status</ion-label>
+          <ion-select [(ngModel)]="ordem.statusPagamento">
+            <ion-select-option value="aberto">Aberto</ion-select-option>
+            <ion-select-option value="pendente">Pendente</ion-select-option>
+            <ion-select-option value="concluido">Concluído</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Data</ion-label>
+          <ion-input
+            [value]="ordem?.data | date:'shortDate'"
+            readonly
+          ></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" (click)="tirarFoto()"
+          >Anexar Imagem</ion-button
+        >
+
+        <ion-img *ngIf="ordem.foto" [src]="ordem.foto"></ion-img>
+
+        <ion-button expand="block" color="primary" (click)="salvarAlteracoes()"
+          >Salvar Alterações</ion-button
+        >
+        <ion-button expand="block" color="danger" (click)="excluirOrdem()"
+          >Excluir Ordem</ion-button
+        >
+
+        <ion-item>
+          <ion-label position="stacked">CEP</ion-label>
+          <ion-input [(ngModel)]="ordem.cep"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Rua</ion-label>
+          <ion-input [(ngModel)]="ordem.logradouro" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Bairro</ion-label>
+          <ion-input [(ngModel)]="ordem.bairro" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Cidade</ion-label>
+          <ion-input [(ngModel)]="ordem.localidade" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Estado</ion-label>
+          <ion-input [(ngModel)]="ordem.uf" readonly></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+
+  <ng-template #carregando>
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Carregando detalhes...</p>
+  </ng-template>
+</ion-content>

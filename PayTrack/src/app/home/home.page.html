@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Início</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="container">
+    <h1>PayTrack</h1>
+    <ion-button expand="block" color="primary" routerLink="/dashboard">Dashboard</ion-button>
+    <ion-button expand="block" color="primary" routerLink="/service-form">Cadastrar ordem de serviço</ion-button>
+    <ion-button expand="block" color="primary" routerLink="/service-list">Lista de ordem de serviço</ion-button>
+    
+    <!-- Botão de Logout / Voltar para Login -->
+    <ion-button expand="block" color="danger" routerLink="/login">
+      Sair
+    </ion-button>
+  </div>
+
+  <!-- Logo no rodapé -->
+  <div class="logo-footer">
+    <img src="assets/img/logo.png" alt="Logo PayTrack">
+  </div>
+</ion-content>
+
+<style>
+  .logo-footer {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .logo-footer img {
+    max-width: 150px;
+    height: auto;
+    opacity: 0.7;
+  }
+</style>

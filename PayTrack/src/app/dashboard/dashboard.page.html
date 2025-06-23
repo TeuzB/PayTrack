@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Resumo Financeiro</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Pendentes:</strong> {{ pendentes }}</p>
+      <p><strong>Recebidas:</strong> {{ recebidas }}</p>
+      <p>
+        <strong>Total a receber:</strong> R$ {{ totalReceber | number: '1.2-2'
+        }}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Ordens de serviço</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div *ngFor="let ordem of ordensRecentes">
+        {{ ordem.descricao }} ({{ ordem.cliente }}) -
+        <span
+          [ngStyle]="{
+          color: ordem.statusPagamento === 'pendente' ? 'red' :
+                 ordem.statusPagamento === 'concluido' ? 'green' :
+                 'orange'
+        }"
+        >
+          {{ ordem.statusPagamento | titlecase }}
+        </span>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" color="primary" routerLink="/home"
+    >INÍCIO</ion-button
+  >
+</ion-content>

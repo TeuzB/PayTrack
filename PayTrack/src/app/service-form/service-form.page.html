@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Nova Ordem</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="serviceForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="stacked">Cliente</ion-label>
+      <ion-input formControlName="cliente"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="cliente?.invalid && cliente?.touched">
+      Nome inválido (não pode conter números)
+    </ion-text>
+
+    <ion-item>
+      <ion-label position="stacked">Descrição</ion-label>
+      <ion-input formControlName="descricao"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="descricao?.invalid && descricao?.touched">
+      Descrição obrigatória
+    </ion-text>
+
+    <ion-item>
+      <ion-label position="stacked">Valor (R$)</ion-label>
+      <ion-input type="number" formControlName="valor"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="valor?.invalid && valor?.touched">
+      Valor mínimo R$0,01
+    </ion-text>
+
+    <ion-item>
+      <ion-label position="stacked">Data</ion-label>
+      <ion-datetime presentation="date" formControlName="data"></ion-datetime>
+    </ion-item>
+    <ion-text color="danger" *ngIf="data?.invalid && data?.touched">
+      Data obrigatória
+    </ion-text>
+
+    <ion-item>
+      <ion-label position="stacked">Status do Pagamento</ion-label>
+      <ion-select formControlName="statusPagamento">
+        <ion-select-option value="aberto">Aberto</ion-select-option>
+        <ion-select-option value="concluido">Concluído</ion-select-option>
+        <ion-select-option value="pendente">Pendente</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-text
+      color="danger"
+      *ngIf="statusPagamento?.invalid && statusPagamento?.touched"
+    >
+      Status obrigatório
+    </ion-text>
+
+    <ion-item>
+      <ion-label position="stacked">CEP</ion-label>
+      <ion-input
+        formControlName="cep"
+        (ionBlur)="buscarEndereco()"
+        type="text"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Rua</ion-label>
+      <ion-input formControlName="logradouro" readonly></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Bairro</ion-label>
+      <ion-input formControlName="bairro" readonly></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Cidade</ion-label>
+      <ion-input formControlName="localidade" readonly></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Estado</ion-label>
+      <ion-input formControlName="uf" readonly></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" [disabled]="serviceForm.invalid">
+      Criar Ordem
+    </ion-button>
+  </form>
+</ion-content>

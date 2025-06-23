@@ -1,0 +1,7 @@
+{
+  "name": "PayTrack",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

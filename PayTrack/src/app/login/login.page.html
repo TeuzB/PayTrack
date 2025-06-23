@@ -1,0 +1,79 @@
+<ion-content class="ion-padding">
+  <div class="container">
+    <!-- Logo acima do título -->
+    <div class="logo-container">
+      <img src="assets/img/logo.png" alt="Logo PayTrack">
+    </div>
+
+    <h1>PayTrack</h1>
+    <h2>Entrar</h2>
+
+    <form [formGroup]="credentials" (ngSubmit)="login()">
+      <ion-item>
+        <ion-input
+          label="Email"
+          type="email"
+          label-placement="floating"
+          formControlName="email"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          label="Senha"
+          type="password"
+          label-placement="floating"
+          formControlName="password"
+        ></ion-input>
+      </ion-item>
+
+      <ion-button
+        expand="block"
+        color="primary"
+        type="submit"
+        [disabled]="credentials.invalid"
+      >
+        Entrar
+      </ion-button>
+    </form>
+
+    <ion-text color="medium">
+      <p (click)="navigateToForgotPassword()" class="clickable">
+        Esqueci minha senha
+      </p>
+    </ion-text>
+
+    <ion-text color="medium">
+      <p (click)="navigateToRegister()" class="clickable">
+        Ainda não tenho uma conta
+      </p>
+    </ion-text>
+  </div>
+</ion-content>
+
+<style>
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .logo-container img {
+    max-width: 200px;
+    height: auto;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  .clickable {
+    text-align: center;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+</style>
