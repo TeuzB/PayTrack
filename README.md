@@ -52,14 +52,14 @@ Você também pode rodar o app emulando dispositivos Android ou iOS usando os co
 
  📱 Versão Mobile (Android e iOS – build necessário)
 
-### 👥 Autores
+# 👥 Autores
 Mateus Barbosa Medeiros de Oliveira
 
 Vitor Silveira
 
 Professor orientador: Luis Maia
 
-# Universidade FUMEC
+### Universidade FUMEC
 
 # 📄 Licença
 Este projeto foi desenvolvido para fins educacionais no contexto acadêmico da Universidade FUMEC.
